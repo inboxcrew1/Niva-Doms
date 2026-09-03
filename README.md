@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NIVA — Elevated Living
+
+> Premium Indian manufacturer and supplier of luxury modular dome cabins, geodesic glamping pods, and turnkey hospitality accommodation units.
+
+---
+
+## Overview
+
+NIVA designs and fabricates architecturally distinctive 14 ft nominal modular dome cabins for experiential resorts, agro-tourism farm stays, tea plantations, and eco-sanctuaries across India.
+
+### Flagship Models
+- **NIVA D1 (Elevated Luxury Cabin)**: 14 ft nominal dome diameter, approx. 13.5 ft circular footprint, elevated approx. 7.5 ft on 3 primary elevated supports (UHM pipe concept) with integrated folding access staircase, iron/steel frame, Bakelite cladding, and attached ensuite bathroom. Public selling price: ₹6,00,000.
+- **NIVA D2 (Grounded Luxury Cabin)**: 14 ft nominal dome diameter, approx. 13.5 ft circular footprint, grounded structural framework on prepared plinth or timber deck, step-in terrace entrance, panoramic overhead star-gazing toughened glass dome, Bakelite cladding, and attached ensuite bathroom. Public selling price: ₹6,00,000.
+
+---
+
+## Tech Stack
+
+- **Framework**: [Next.js 14](https://nextjs.org/) (App Router, Server Components)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS, PostCSS
+- **Performance / Image Pipeline**: Next.js Image with `sharp` hardware acceleration (AVIF & WebP)
+- **Icons**: Lucide React
+- **Animations**: CSS GPU transforms & Framer Motion
+- **SEO**: Dynamic XML Sitemap (`/sitemap.xml`), Robots (`/robots.txt`), Web App Manifest, Schema.org JSON-LD (Organization, WebSite, Product, BreadcrumbList, FAQPage)
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Installation
+
+```bash
+npm install
+```
+
+### Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Production Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This application is ready for zero-configuration deployment on [Vercel](https://vercel.com), [Netlify](https://www.netlify.com/), or any Node.js hosting platform.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Credits
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Designed & Developed by [inboxcrew](https://www.inboxcrew.in).
+© NIVA Castle Elevated Living. All Rights Reserved.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

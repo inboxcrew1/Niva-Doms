@@ -1,0 +1,38 @@
+export const BRAND = {
+  name: "NIVA",
+  fullName: "NIVA CASTLE",
+  tagline: "ELEVATED LIVING",
+  shortTagline: "Elevated Living",
+  foundedYear: 2026,
+  colors: {
+    charcoal: "#0D0D0F",
+    champagne: "#C9A46A",
+    warmGold: "#E1B977",
+    ivory: "#F2EFE6",
+    warmStone: "#B7B0A1",
+  },
+  contact: {
+    email: "enquiry@nivaliving.com",
+    phone: "+91 98765 43210",
+    phoneDisplay: "+91 98765 43210",
+    hours: "Monday – Saturday: 9:30 AM – 6:30 PM IST",
+    country: "India",
+  },
+  social: {
+    instagram: "https://instagram.com",
+    linkedin: "https://linkedin.com",
+    youtube: "https://youtube.com",
+  },
+  navLinks: [
+    { label: "HOME", href: "/" },
+    { label: "NIVA D1", href: "/d1" },
+    { label: "NIVA D2", href: "/d2" },
+    { label: "WHY NIVA", href: "/why-niva" },
+    { label: "APPLICATIONS", href: "/applications" },
+    { label: "DESIGN", href: "/design" },
+    { label: "ABOUT", href: "/about" },
+    { label: "VISUAL JOURNAL", href: "/projects" },
+    { label: "FAQ", href: "/faq" },
+    { label: "REQUEST A QUOTE", href: "/contact" },
+  ],
+};
