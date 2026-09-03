@@ -79,8 +79,7 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 95vw, 1200px"
             className="object-cover object-center transition-opacity duration-300"
-            priority={activeIdx === 0}
-            loading={activeIdx === 0 ? 'eager' : 'lazy'}
+            loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/20 to-transparent pointer-events-none" />
 

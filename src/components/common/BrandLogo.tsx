@@ -24,7 +24,6 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
           fill
           sizes="50px"
           className="object-contain filter drop-shadow-[0_2px_8px_rgba(201,164,106,0.3)] transition-transform duration-500 group-hover:scale-105"
-          priority
         />
       </div>
 

@@ -3,11 +3,15 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import dynamic from 'next/dynamic';
 import { BrandLogo } from '../common/BrandLogo';
 import { Button } from '../common/Button';
-import { QuoteModal } from '../interactive/QuoteModal';
 import { BRAND } from '@/data/brand';
 import { Menu, X } from 'lucide-react';
+
+const QuoteModal = dynamic(() => import('../interactive/QuoteModal').then((mod) => mod.QuoteModal), {
+  ssr: false,
+});
 
 export const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);

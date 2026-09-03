@@ -3,13 +3,17 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { Button } from '@/components/common/Button';
 import { SectionHeading } from '@/components/common/SectionHeading';
 import { CTASection } from '@/components/common/CTASection';
 import { PRODUCTS } from '@/data/products';
 import { APPLICATIONS } from '@/data/applications';
-import { QuoteModal } from '@/components/interactive/QuoteModal';
 import { ArrowRight, Bed, Bath, Wind, Tv, Sparkles, Compass, Check } from 'lucide-react';
+
+const QuoteModal = dynamic(() => import('@/components/interactive/QuoteModal').then((mod) => mod.QuoteModal), {
+  ssr: false,
+});
 
 export const HomeContent: React.FC = () => {
   const d1 = PRODUCTS.d1;
@@ -44,10 +48,11 @@ export const HomeContent: React.FC = () => {
             src="/images/products/d2-hero-twilight.jpg"
             alt="NIVA D2 Luxury Dome Cabins Illuminated on Timber Deck at Twilight in Indian Mountain Resort"
             fill
-            sizes="100vw"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
             className="object-cover object-center scale-105 transition-transform duration-[10000ms] hover:scale-100"
             priority
             fetchPriority="high"
+            quality={75}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/65 to-charcoal/40" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(13,13,15,0.75)_100%)]" />
