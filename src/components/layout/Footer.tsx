@@ -55,7 +55,9 @@ export const Footer: React.FC = () => {
             <div className="flex flex-col gap-3 text-xs text-stone-warm font-light">
               <p>NIVA CASTLE</p>
               <p>Fabricated in India</p>
-              <p className="text-champagne pt-1">enquiry@nivaliving.com</p>
+              <a href={`mailto:${BRAND.contact.email}`} className="text-champagne hover:text-gold-warm transition-colors pt-1 block">
+                {BRAND.contact.email}
+              </a>
               <div className="flex items-center gap-4 pt-3">
                 <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-champagne transition-colors">Instagram</a>
                 <span>•</span>

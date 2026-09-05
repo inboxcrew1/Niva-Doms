@@ -38,7 +38,7 @@ export const SITE_CONFIG = {
     "turnkey resort accommodation"
   ],
   contact: {
-    email: "enquiry@nivaliving.com",
+    email: "info@nivadoms.com",
     phone: "+91 98765 43210",
     country: "India",
   },
@@ -106,7 +106,7 @@ export function getOrganizationSchema() {
     "url": "https://nivaliving.com",
     "logo": "https://nivaliving.com/brand/niva-logo-main.png",
     "description": "Manufacturer and supplier of luxury dome cabins, geodesic glamping pods, and prefabricated resort accommodation in India.",
-    "email": "enquiry@nivaliving.com",
+    "email": "info@nivadoms.com",
     "address": {
       "@type": "PostalAddress",
       "addressCountry": "IN"

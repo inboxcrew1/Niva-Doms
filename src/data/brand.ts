@@ -12,7 +12,7 @@ export const BRAND = {
     warmStone: "#B7B0A1",
   },
   contact: {
-    email: "enquiry@nivaliving.com",
+    email: "info@nivadoms.com",
     phone: "+91 98765 43210",
     phoneDisplay: "+91 98765 43210",
     hours: "Monday – Saturday: 9:30 AM – 6:30 PM IST",

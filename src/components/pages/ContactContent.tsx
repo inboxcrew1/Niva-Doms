@@ -50,7 +50,7 @@ export const ContactContent: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-stone-warm block mb-0.5">Direct Email</span>
-                  <a href="mailto:enquiry@nivaliving.com" className="text-ivory hover:text-champagne font-medium">
+                  <a href={`mailto:${BRAND.contact.email}`} className="text-ivory hover:text-champagne font-medium">
                     {BRAND.contact.email}
                   </a>
                 </div>
