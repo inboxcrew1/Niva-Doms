@@ -46,36 +46,51 @@ export const Footer: React.FC = () => {
     <footer className="relative w-full text-ivory overflow-hidden bg-[#0D0D0F] pt-24 sm:pt-32 lg:pt-36 pb-12 sm:pb-16 min-h-[840px] flex flex-col justify-between">
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           PANORAMIC ARCHITECTURAL BACKGROUND
-          - Phone Mode (< md): Portrait format (459x1024)
-          - Desktop Mode (>= md): Landscape panoramic format (1024x442)
+          - Phone Mode (< md): Vertical portrait composition (459x1024)
+          - Desktop Mode (>= md): Wide panoramic composition (1024x442)
+          Implemented via Next.js Image for reliable rendering across
+          all mobile/desktop browsers with no CSS escaping issues.
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       {/* Phone / Mobile Mode (< md) */}
-      <div
-        className="absolute inset-0 z-0 bg-cover bg-no-repeat pointer-events-none md:hidden"
-        style={{
-          backgroundImage: "url('/images/footer/niva-footer-mobile.webp'), url('/images/footer/niva-footer-mobile.png')",
-          backgroundPosition: 'center bottom',
-          backgroundSize: 'cover',
-        }}
-        aria-hidden="true"
-      />
+      <div className="absolute inset-0 z-0 pointer-events-none md:hidden">
+        <Image
+          src="/images/footer/niva-footer-mobile-v2.webp"
+          alt="NIVA Architecture in Nature"
+          fill
+          sizes="100vw"
+          className="object-cover object-bottom"
+          quality={92}
+        />
+      </div>
 
       {/* Desktop Mode (>= md) */}
-      <div
-        className="absolute inset-0 z-0 bg-cover bg-no-repeat pointer-events-none hidden md:block"
-        style={{
-          backgroundImage: "url('/images/footer/niva-footer-desktop.webp'), url('/images/footer/niva-footer-desktop.png')",
-          backgroundPosition: 'center bottom',
-          backgroundSize: 'cover',
-        }}
-        aria-hidden="true"
-      />
+      <div className="absolute inset-0 z-0 pointer-events-none hidden md:block">
+        <Image
+          src="/images/footer/niva-footer-desktop-v2.webp"
+          alt="NIVA Architecture in Nature"
+          fill
+          sizes="100vw"
+          className="object-cover object-bottom"
+          quality={92}
+        />
+      </div>
 
-      {/* Cinematic Overlays: darker at top for pristine text legibility, revealing landscape at bottom */}
-      <div className="absolute inset-x-0 top-0 h-44 z-[1] bg-gradient-to-b from-[#0D0D0F] via-[#0D0D0F]/95 to-transparent pointer-events-none" aria-hidden="true" />
-      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0D0D0F]/92 via-[#0D0D0F]/78 to-[#0D0D0F]/45 pointer-events-none" aria-hidden="true" />
-      <div className="absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_top,_rgba(13,13,15,0.94)_0%,_rgba(13,13,15,0.65)_55%,_transparent_100%)] pointer-events-none" aria-hidden="true" />
-      <div className="absolute inset-x-0 bottom-0 h-52 z-[1] bg-gradient-to-t from-[#0D0D0F] via-[#0D0D0F]/85 to-transparent pointer-events-none" aria-hidden="true" />
+      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          BALANCED LIGHT CONTRAST OVERLAYS
+          - Top fade: smooth seamless transition from section above
+          - Upper text backdrop: gentle contrast behind navigation
+          - Bottom: CLEAR & VIBRANT so the glowing geodesic domes,
+            green lawn, river lights, and golden pyramid are
+            prominently visible!
+      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      {/* Top smooth blend from charcoal background */}
+      <div className="absolute inset-x-0 top-0 h-36 z-[1] bg-gradient-to-b from-[#0D0D0F] via-[#0D0D0F]/80 to-transparent pointer-events-none" aria-hidden="true" />
+
+      {/* Editorial backdrop behind typography (only top 60%) */}
+      <div className="absolute inset-x-0 top-0 h-[58%] z-[1] bg-gradient-to-b from-[#0D0D0F]/65 via-[#0D0D0F]/40 to-transparent pointer-events-none" aria-hidden="true" />
+
+      {/* Soft bottom vignette behind legal fine-print */}
+      <div className="absolute inset-x-0 bottom-0 h-28 z-[1] bg-gradient-to-t from-[#0D0D0F]/85 via-[#0D0D0F]/30 to-transparent pointer-events-none" aria-hidden="true" />
 
       {/* Main Content Container */}
       <div className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 w-full flex-grow flex flex-col justify-between">
