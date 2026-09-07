@@ -13,7 +13,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Architecture & Craft — NIVA Geodesic Engineering',
     description: 'Geodesic triangulated shells, structural tripod pillars, and turnkey hospitality interiors in India.',
-    url: 'https://nivaliving.com/design',
+    url: 'https://nivadoms.com/design',
+    images: [
+      {
+        url: 'https://nivadoms.com/images/products/d2-hero-twilight.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'NIVA Luxury Dome Cabins — Elevated Living India',
+        type: 'image/jpeg',
+      },
+    ],
   },
 };
 

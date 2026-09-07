@@ -13,7 +13,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Why NIVA — Commercial ROI & Modular Resort Deployment',
     description: '12-18 month ROI, turnkey off-site fabrication, and luxury hospitality standards for Indian resort operators.',
-    url: 'https://nivaliving.com/why-niva',
+    url: 'https://nivadoms.com/why-niva',
+    images: [
+      {
+        url: 'https://nivadoms.com/images/products/d2-hero-twilight.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'NIVA Luxury Dome Cabins — Elevated Living India',
+        type: 'image/jpeg',
+      },
+    ],
   },
 };
 

@@ -150,6 +150,25 @@ export const Header: React.FC = () => {
           >
             REQUEST A QUOTE
           </Button>
+
+          <div className="grid grid-cols-2 gap-2 text-center text-xs font-sans">
+            <a
+              href={`tel:${BRAND.contact.phone.replace(/\s+/g, '')}`}
+              className="border border-white/15 py-2 px-3 text-ivory hover:text-champagne hover:border-champagne transition-colors flex items-center justify-center gap-1.5"
+            >
+              <span>Call</span>
+              <span className="text-[10px] text-champagne">{BRAND.contact.phoneRaw}</span>
+            </a>
+            <a
+              href={BRAND.contact.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-champagne/40 bg-champagne/10 py-2 px-3 text-champagne hover:bg-champagne/20 transition-colors flex items-center justify-center gap-1.5"
+            >
+              <span>WhatsApp</span>
+            </a>
+          </div>
+
           <div className="flex items-center justify-between text-xs text-stone-warm pt-1 font-sans">
             <span>NIVA CASTLE</span>
             <span>ELEVATED LIVING</span>

@@ -121,7 +121,7 @@ export const ContactForm: React.FC = () => {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            placeholder="+91 98765 43210"
+            placeholder="+91 95361 71380"
             className={"w-full bg-charcoal-500 border " + (errors.phone ? 'border-red-500' : 'border-white/15') + " text-ivory text-xs px-3.5 sm:px-4 py-3 sm:py-3.5 focus:border-champagne focus:outline-none transition-colors"}
           />
           {errors.phone && <p className="text-red-400 text-[10px] mt-1">{errors.phone}</p>}

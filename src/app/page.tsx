@@ -12,7 +12,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'NIVA Elevated Living',
     description: 'Manufacturer and supplier of luxury dome cabins, geodesic glamping pods, and modular resort accommodation units in India.',
-    url: 'https://nivaliving.com',
+    url: 'https://nivadoms.com',
+    images: [
+      {
+        url: 'https://nivadoms.com/images/products/d2-hero-twilight.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'NIVA Luxury Dome Cabins — Elevated Living India',
+        type: 'image/jpeg',
+      },
+    ],
   },
 };
 

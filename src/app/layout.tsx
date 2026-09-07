@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { WhatsAppButton } from '@/components/common/WhatsAppButton';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { SITE_CONFIG, getOrganizationSchema, getWebSiteSchema } from '@/data/seo';
 import { Cormorant_Garamond, Plus_Jakarta_Sans } from 'next/font/google';
@@ -57,10 +58,11 @@ export const metadata: Metadata = {
     description: SITE_CONFIG.description,
     images: [
       {
-        url: '/images/products/d2-hero-twilight.jpg',
+        url: 'https://nivadoms.com/images/products/d2-hero-twilight.jpg',
         width: 1200,
         height: 630,
         alt: 'NIVA Luxury Dome Cabins Illuminated at Twilight in Nature',
+        type: 'image/jpeg',
       },
     ],
   },
@@ -68,7 +70,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'NIVA Elevated Living',
     description: SITE_CONFIG.description,
-    images: ['/images/products/d2-hero-twilight.jpg'],
+    images: ['https://nivadoms.com/images/products/d2-hero-twilight.jpg'],
   },
   robots: {
     index: true,
@@ -95,7 +97,7 @@ export const metadata: Metadata = {
     ],
   },
   verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || 'google-site-verification-nivaliving-console',
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '',
   },
 };
 
@@ -116,6 +118,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-grow">{children}</main>
         <Footer />
+        <WhatsAppButton />
       </body>
     </html>
   );

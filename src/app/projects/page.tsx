@@ -14,7 +14,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Visual Journal — NIVA Luxury Dome Cabins',
     description: 'Photographic retrospective of NIVA elevated and grounded cabins across Indian terrains.',
-    url: 'https://nivaliving.com/projects',
+    url: 'https://nivadoms.com/projects',
+    images: [
+      {
+        url: 'https://nivadoms.com/images/products/d2-hero-twilight.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'NIVA Luxury Dome Cabins — Elevated Living India',
+        type: 'image/jpeg',
+      },
+    ],
   },
 };
 

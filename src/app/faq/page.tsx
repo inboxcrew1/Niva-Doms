@@ -13,7 +13,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'FAQ — NIVA Luxury Dome Cabins India',
     description: 'Frequently asked questions regarding NIVA pricing, delivery, and specifications.',
-    url: 'https://nivaliving.com/faq',
+    url: 'https://nivadoms.com/faq',
+    images: [
+      {
+        url: 'https://nivadoms.com/images/products/d2-hero-twilight.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'NIVA Luxury Dome Cabins — Elevated Living India',
+        type: 'image/jpeg',
+      },
+    ],
   },
 };
 

@@ -52,13 +52,19 @@ export const Footer: React.FC = () => {
           </div>
           <div>
             <h4 className="text-[11px] font-sans uppercase tracking-[0.25em] text-champagne mb-6 font-medium">ENQUIRIES</h4>
-            <div className="flex flex-col gap-3 text-xs text-stone-warm font-light">
+            <div className="flex flex-col gap-2.5 text-xs text-stone-warm font-light">
               <p>NIVA CASTLE</p>
               <p>Fabricated in India</p>
-              <a href={`mailto:${BRAND.contact.email}`} className="text-champagne hover:text-gold-warm transition-colors pt-1 block">
+              <a href={`mailto:${BRAND.contact.email}`} className="text-champagne hover:text-gold-warm transition-colors pt-0.5 block">
                 {BRAND.contact.email}
               </a>
-              <div className="flex items-center gap-4 pt-3">
+              <a href={`tel:${BRAND.contact.phone.replace(/\s+/g, '')}`} className="text-ivory hover:text-champagne transition-colors block">
+                Tel: {BRAND.contact.phone}
+              </a>
+              <a href={BRAND.contact.whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-champagne hover:text-gold-warm transition-colors block">
+                WhatsApp: {BRAND.contact.whatsapp}
+              </a>
+              <div className="flex items-center gap-4 pt-2">
                 <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-champagne transition-colors">Instagram</a>
                 <span>•</span>
                 <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-champagne transition-colors">LinkedIn</a>

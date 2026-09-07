@@ -17,8 +17,8 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://nivaliving.com/sitemap.xml',
-    host: 'https://nivaliving.com',
+    sitemap: 'https://nivadoms.com/sitemap.xml',
+    host: 'https://nivadoms.com',
   };
 }
 

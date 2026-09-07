@@ -12,8 +12,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'NIVA D1 — Elevated Luxury Dome Cabin (14 Ft Nominal Class)',
     description: '14 ft nominal elevated luxury dome cabin perched on 3 primary elevated supports (UHM pipe concept) approx. 7.5 ft high with folding staircase and attached ensuite bathroom.',
-    url: 'https://nivaliving.com/d1',
-    images: ['/images/products/d1-hero-resort-walkway.jpg'],
+    url: 'https://nivadoms.com/d1',
+    images: [{ url: 'https://nivadoms.com/images/products/d1-hero-resort-walkway.jpg', width: 1200, height: 630, alt: 'NIVA D1 Elevated Luxury Dome Cabin India' }],
   },
 };
 

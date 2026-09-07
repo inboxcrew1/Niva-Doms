@@ -12,8 +12,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'NIVA D2 — Grounded Luxury Dome Cabin & Resort Pod (14 Ft Nominal Class)',
     description: '14 ft nominal grounded luxury dome cabin engineered for seamless landscape and plinth integration with panoramic star-gazing glass skylight and ensuite bathroom.',
-    url: 'https://nivaliving.com/d2',
-    images: ['/images/products/d2-hero-twilight.jpg'],
+    url: 'https://nivadoms.com/d2',
+    images: [{ url: 'https://nivadoms.com/images/products/d2-hero-twilight.jpg', width: 1200, height: 630, alt: 'NIVA D2 Grounded Luxury Dome Cabin India' }],
   },
 };
 

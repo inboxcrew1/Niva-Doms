@@ -14,7 +14,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Hospitality Applications — Luxury Dome Cabins India',
     description: 'Turnkey accommodation units for resorts, farm stays, glamping sites, and mountain retreats.',
-    url: 'https://nivaliving.com/applications',
+    url: 'https://nivadoms.com/applications',
+    images: [
+      {
+        url: 'https://nivadoms.com/images/products/d2-hero-twilight.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'NIVA Luxury Dome Cabins — Elevated Living India',
+        type: 'image/jpeg',
+      },
+    ],
   },
 };
 

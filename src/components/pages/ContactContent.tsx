@@ -3,7 +3,7 @@
 import React from 'react';
 import { ContactForm } from '@/components/interactive/ContactForm';
 import { BRAND } from '@/data/brand';
-import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, MessageCircle } from 'lucide-react';
 
 export const ContactContent: React.FC = () => {
   return (
@@ -62,7 +62,26 @@ export const ContactContent: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-stone-warm block mb-0.5">Phone Consultation</span>
-                  <span className="text-ivory font-medium">{BRAND.contact.phone}</span>
+                  <a href={`tel:${BRAND.contact.phone.replace(/\s+/g, '')}`} className="text-ivory hover:text-champagne font-medium transition-colors">
+                    {BRAND.contact.phone}
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3.5 text-xs font-sans">
+                <div className="text-champagne mt-0.5 flex-shrink-0">
+                  <MessageCircle size={18} />
+                </div>
+                <div>
+                  <span className="text-stone-warm block mb-0.5">WhatsApp Enquiry</span>
+                  <a
+                    href={BRAND.contact.whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-champagne hover:text-gold-warm font-medium transition-colors"
+                  >
+                    {BRAND.contact.whatsapp} (Chat Now)
+                  </a>
                 </div>
               </div>
 

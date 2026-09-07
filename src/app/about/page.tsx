@@ -14,7 +14,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'About NIVA — Luxury Hospitality Architecture India',
     description: 'Pioneering modular luxury dome cabins and low-impact hospitality architecture across India.',
-    url: 'https://nivaliving.com/about',
+    url: 'https://nivadoms.com/about',
+    images: [
+      {
+        url: 'https://nivadoms.com/images/products/d2-hero-twilight.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'NIVA Luxury Dome Cabins — Elevated Living India',
+        type: 'image/jpeg',
+      },
+    ],
   },
 };
 
