@@ -1,4 +1,27 @@
+import type { Metadata } from 'next';
 import React from 'react';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy',
+  description: 'Privacy Policy for NIVA Elevated Living — commercial inquiries, hospitality project feasibility data, and confidential communications.',
+  alternates: {
+    canonical: '/privacy',
+  },
+  openGraph: {
+    title: 'Privacy Policy — NIVA Elevated Living',
+    description: 'Privacy Policy and client confidentiality standards for NIVA Elevated Living.',
+    url: 'https://nivadoms.com/privacy',
+    images: [
+      {
+        url: 'https://nivadoms.com/images/products/d2-hero-twilight.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'NIVA Privacy Policy',
+        type: 'image/jpeg',
+      },
+    ],
+  },
+};
 
 export default function PrivacyPolicyPage() {
   return (

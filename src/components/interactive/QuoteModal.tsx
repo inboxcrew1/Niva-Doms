@@ -30,6 +30,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [serverError, setServerError] = useState<string | null>(null);
 
   useEffect(() => {
     setFormData((prev) => ({ ...prev, model: defaultModel }));
@@ -62,18 +63,41 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
     return errs;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setServerError(null);
     const errs = validate();
     if (Object.keys(errs).length > 0) {
       setErrors(errs);
       return;
     }
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fullName: formData.fullName,
+          phone: formData.phone,
+          email: formData.email,
+          location: formData.location,
+          preferredModel: formData.model,
+          units: formData.units,
+          projectType: formData.projectType,
+          notes: formData.notes,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || 'Failed to submit quote request. Please try again.');
+      }
       setIsSubmitted(true);
-    }, 700);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'An unexpected error occurred. Please contact info@nivadoms.com directly.';
+      setServerError(msg);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -239,6 +263,12 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                   className="w-full bg-charcoal-500 border border-white/15 text-ivory text-xs p-3 focus:border-champagne focus:outline-none"
                 />
               </div>
+
+              {serverError && (
+                <div className="p-3.5 border border-red-500/40 bg-red-950/30 text-red-300 text-xs font-sans rounded-sm">
+                  {serverError}
+                </div>
+              )}
 
               <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
                 <div className="flex items-center gap-2 text-[10px] text-stone-warm">

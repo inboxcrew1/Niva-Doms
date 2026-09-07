@@ -9,23 +9,46 @@ import { Mail, Phone, MapPin, MessageCircle, ArrowRight, Leaf, Mountain, Trees, 
 export const Footer: React.FC = () => {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [subError, setSubError] = useState<string | null>(null);
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email.trim() || !email.includes('@')) return;
-    setSubscribed(true);
-    setTimeout(() => {
-      setEmail('');
-    }, 2000);
+    setSubError(null);
+    if (!email.trim() || !email.includes('@')) {
+      setSubError('Please enter a valid email address.');
+      return;
+    }
+    setIsSubmitting(true);
+    try {
+      const res = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || 'Failed to subscribe. Please try again.');
+      }
+      setSubscribed(true);
+      setTimeout(() => {
+        setEmail('');
+      }, 2500);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Unable to subscribe. Please try again.';
+      setSubError(msg);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <footer className="relative w-full text-ivory overflow-hidden bg-[#0D0D0F] pt-24 sm:pt-32 lg:pt-36 pb-12 sm:pb-16 min-h-[840px] flex flex-col justify-between">
-      {/* Panoramic Architectural Background */}
+      {/* Panoramic Architectural Background (High-efficiency WebP) */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-no-repeat pointer-events-none"
         style={{
-          backgroundImage: "url('/images/footer/niva-panoramic-footer.png')",
+          backgroundImage: "url('/images/footer/niva-panoramic-footer.webp'), url('/images/footer/niva-panoramic-footer.png')",
           backgroundPosition: 'center bottom',
           backgroundSize: 'cover',
         }}
@@ -214,19 +237,29 @@ export const Footer: React.FC = () => {
                   <span>Thank you for subscribing to the NIVA journal.</span>
                 </div>
               ) : (
-                <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row items-stretch gap-2.5">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email address"
-                    required
-                    className="flex-grow bg-[#0D0D0F]/80 backdrop-blur-md border border-white/20 focus:border-champagne text-ivory text-xs px-4 py-3 placeholder:text-stone-warm/50 focus:outline-none transition-colors"
-                  />
-                  <button type="submit" className="group bg-champagne hover:bg-gold-warm text-charcoal font-sans font-medium text-xs px-6 py-3 transition-all duration-300 flex items-center justify-center gap-2 flex-shrink-0">
-                    <span>SUBSCRIBE</span>
-                    <ArrowRight size={14} className="transform transition-transform duration-300 group-hover:translate-x-1" />
-                  </button>
+                <form onSubmit={handleSubscribe} className="flex flex-col gap-2">
+                  <div className="flex flex-col sm:flex-row items-stretch gap-2.5">
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Enter your email address"
+                      required
+                      autoComplete="email"
+                      className="flex-grow bg-[#0D0D0F]/80 backdrop-blur-md border border-white/20 focus:border-champagne text-ivory text-xs px-4 py-3 placeholder:text-stone-warm/50 focus:outline-none transition-colors"
+                    />
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="group bg-champagne hover:bg-gold-warm disabled:opacity-60 text-charcoal font-sans font-medium text-xs px-6 py-3 transition-all duration-300 flex items-center justify-center gap-2 flex-shrink-0"
+                    >
+                      <span>{isSubmitting ? 'SUBSCRIBING...' : 'SUBSCRIBE'}</span>
+                      <ArrowRight size={14} className="transform transition-transform duration-300 group-hover:translate-x-1" />
+                    </button>
+                  </div>
+                  {subError && (
+                    <p className="text-[11px] text-red-400 font-sans mt-0.5">{subError}</p>
+                  )}
                 </form>
               )}
             </div>

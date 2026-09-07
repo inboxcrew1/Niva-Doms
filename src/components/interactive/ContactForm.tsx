@@ -15,8 +15,10 @@ export const ContactForm: React.FC = () => {
     units: '1-3 Units',
     preferredModel: 'NIVA D1',
     message: '',
+    honeypot: '',
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [serverError, setServerError] = useState<string | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -48,20 +50,35 @@ export const ContactForm: React.FC = () => {
         return copy;
       });
     }
+    if (serverError) setServerError(null);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setServerError(null);
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
     }
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || 'Failed to submit inquiry. Please try again or email info@nivadoms.com.');
+      }
       setIsSubmitted(true);
-    }, 800);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'An unexpected error occurred. Please contact info@nivadoms.com directly.';
+      setServerError(msg);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -207,6 +224,25 @@ export const ContactForm: React.FC = () => {
         />
         {errors.message && <p className="text-red-400 text-[10px] mt-1">{errors.message}</p>}
       </div>
+
+      {/* Anti-spam honeypot (hidden from human users) */}
+      <div className="hidden" aria-hidden="true">
+        <input
+          type="text"
+          name="honeypot"
+          value={formData.honeypot}
+          onChange={handleChange}
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
+      {serverError && (
+        <div className="mb-6 p-4 border border-red-500/40 bg-red-950/30 text-red-300 text-xs font-sans rounded-sm">
+          {serverError}
+        </div>
+      )}
+
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-[10px] sm:text-[11px] text-stone-warm font-light font-sans text-center sm:text-left">All project information is treated with strict confidentiality.</p>
         <Button type="submit" variant="primary" size="lg" disabled={isSubmitting} fullWidth className="sm:w-auto">

@@ -1,4 +1,27 @@
+import type { Metadata } from 'next';
 import React from 'react';
+
+export const metadata: Metadata = {
+  title: 'Terms & Conditions',
+  description: 'Terms & Conditions for NIVA Elevated Living — commercial estimates, engineering approvals, and intellectual property.',
+  alternates: {
+    canonical: '/terms',
+  },
+  openGraph: {
+    title: 'Terms & Conditions — NIVA Elevated Living',
+    description: 'Terms and commercial policies for NIVA Elevated Living.',
+    url: 'https://nivadoms.com/terms',
+    images: [
+      {
+        url: 'https://nivadoms.com/images/products/d2-hero-twilight.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'NIVA Terms & Conditions',
+        type: 'image/jpeg',
+      },
+    ],
+  },
+};
 
 export default function TermsConditionsPage() {
   return (
