@@ -45,69 +45,63 @@ export const Footer: React.FC = () => {
   return (
     <footer className="relative w-full text-ivory overflow-hidden bg-[#0D0D0F] pt-24 sm:pt-32 lg:pt-36 pb-12 sm:pb-16 min-h-[840px] flex flex-col justify-between">
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          PANORAMIC ARCHITECTURAL BACKGROUND
-          - Phone Mode (< md): Vertical portrait composition (459x1024)
-          - Desktop Mode (>= md): Wide panoramic composition (1024x442)
-          Implemented via Next.js Image for reliable rendering across
-          all mobile/desktop browsers with no CSS escaping issues.
-      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          PANORAMIC ARCHITECTURAL BACKGROUND
+          PANORAMIC ARCHITECTURAL BACKGROUND (HIGH QUALITY - UNCROPPED)
           HTML5 Picture element with native media queries:
-          - Phone Mode (< 768px): Vertical portrait composition (459x1024)
-          - Desktop Mode (>= 768px): Wide panoramic composition (1024x442)
-          Eager loading ensures instantaneous appearance without lazy-load delays.
+          - Phone Mode (< 768px): High-resolution vertical portrait (1148x2560)
+          - Desktop Mode (>= 768px): High-resolution wide panorama (2560x1105)
+          Both span 100% width with natural aspect ratio anchored to the bottom.
+          Zero "cover" cropping - all domes, mountains, and landscape details are 100% preserved.
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <picture className="absolute inset-0 z-0 pointer-events-none w-full h-full block select-none">
-        {/* Phone / Mobile (< 768px): Tall portrait composition */}
-        <source
-          media="(max-width: 767px)"
-          type="image/webp"
-          srcSet="/images/footer/niva-footer-mobile-v3.webp"
-        />
-        <source
-          media="(max-width: 767px)"
-          type="image/png"
-          srcSet="/images/footer/niva-footer-mobile-v3.png"
-        />
+      <div className="absolute inset-x-0 bottom-0 z-0 pointer-events-none w-full overflow-hidden flex flex-col justify-end">
+        <picture className="w-full block select-none">
+          {/* Phone / Mobile (< 768px): Tall portrait composition (uncropped) */}
+          <source
+            media="(max-width: 767px)"
+            type="image/webp"
+            srcSet="/images/footer/niva-footer-mobile-hq.webp"
+          />
+          <source
+            media="(max-width: 767px)"
+            type="image/png"
+            srcSet="/images/footer/niva-footer-mobile-hq.png"
+          />
 
-        {/* Desktop / Tablet (>= 768px): Wide panoramic composition */}
-        <source
-          media="(min-width: 768px)"
-          type="image/webp"
-          srcSet="/images/footer/niva-footer-desktop-v3.webp"
-        />
-        <source
-          media="(min-width: 768px)"
-          type="image/png"
-          srcSet="/images/footer/niva-footer-desktop-v3.png"
-        />
+          {/* Desktop / Tablet (>= 768px): Wide panoramic composition (uncropped) */}
+          <source
+            media="(min-width: 768px)"
+            type="image/webp"
+            srcSet="/images/footer/niva-footer-desktop-hq.webp"
+          />
+          <source
+            media="(min-width: 768px)"
+            type="image/png"
+            srcSet="/images/footer/niva-footer-desktop-hq.png"
+          />
 
-        {/* Fallback image */}
-        <img
-          src="/images/footer/niva-footer-desktop-v3.webp"
-          alt="NIVA Architecture in Nature"
-          className="w-full h-full object-cover object-bottom"
-          loading="eager"
-          decoding="async"
-        />
-      </picture>
+          {/* Fallback image: uncropped, natural aspect ratio, full width */}
+          <img
+            src="/images/footer/niva-footer-desktop-hq.webp"
+            alt="NIVA Architecture in Nature"
+            className="w-full h-auto block object-contain object-bottom"
+            loading="eager"
+            decoding="async"
+          />
+        </picture>
+      </div>
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          BALANCED LIGHT CONTRAST OVERLAYS
-          - Top fade: smooth seamless transition from section above
-          - Upper text backdrop: gentle contrast behind navigation
+          LIGHT CONTRAST OVERLAYS
+          - Top fade: smooth seamless transition from charcoal section above
+          - Upper text backdrop: gentle contrast behind navigation links
           - Bottom: CLEAR & VIBRANT so the glowing geodesic domes,
             green lawn, river lights, and golden pyramid are
-            prominently visible!
+            fully visible without darkening!
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       {/* Top smooth blend from charcoal background */}
-      <div className="absolute inset-x-0 top-0 h-36 z-[1] bg-gradient-to-b from-[#0D0D0F] via-[#0D0D0F]/80 to-transparent pointer-events-none" aria-hidden="true" />
+      <div className="absolute inset-x-0 top-0 h-32 z-[1] bg-gradient-to-b from-[#0D0D0F] via-[#0D0D0F]/80 to-transparent pointer-events-none" aria-hidden="true" />
 
-      {/* Editorial backdrop behind typography (only top 60%) */}
-      <div className="absolute inset-x-0 top-0 h-[58%] z-[1] bg-gradient-to-b from-[#0D0D0F]/65 via-[#0D0D0F]/40 to-transparent pointer-events-none" aria-hidden="true" />
-
-      {/* Soft bottom vignette behind legal fine-print */}
-      <div className="absolute inset-x-0 bottom-0 h-28 z-[1] bg-gradient-to-t from-[#0D0D0F]/85 via-[#0D0D0F]/30 to-transparent pointer-events-none" aria-hidden="true" />
+      {/* Editorial backdrop behind typography (top 50% only) */}
+      <div className="absolute inset-x-0 top-0 h-[48%] z-[1] bg-gradient-to-b from-[#0D0D0F]/70 via-[#0D0D0F]/35 to-transparent pointer-events-none" aria-hidden="true" />
 
       {/* Main Content Container */}
       <div className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 w-full flex-grow flex flex-col justify-between">
