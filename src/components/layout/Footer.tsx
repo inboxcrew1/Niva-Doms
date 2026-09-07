@@ -50,30 +50,47 @@ export const Footer: React.FC = () => {
           - Desktop Mode (>= md): Wide panoramic composition (1024x442)
           Implemented via Next.js Image for reliable rendering across
           all mobile/desktop browsers with no CSS escaping issues.
+      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          PANORAMIC ARCHITECTURAL BACKGROUND
+          HTML5 Picture element with native media queries:
+          - Phone Mode (< 768px): Vertical portrait composition (459x1024)
+          - Desktop Mode (>= 768px): Wide panoramic composition (1024x442)
+          Eager loading ensures instantaneous appearance without lazy-load delays.
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      {/* Phone / Mobile Mode (< md) */}
-      <div className="absolute inset-0 z-0 pointer-events-none md:hidden">
-        <Image
-          src="/images/footer/niva-footer-mobile-v2.webp"
-          alt="NIVA Architecture in Nature"
-          fill
-          sizes="100vw"
-          className="object-cover object-bottom"
-          quality={92}
+      <picture className="absolute inset-0 z-0 pointer-events-none w-full h-full block select-none">
+        {/* Phone / Mobile (< 768px): Tall portrait composition */}
+        <source
+          media="(max-width: 767px)"
+          type="image/webp"
+          srcSet="/images/footer/niva-footer-mobile-v3.webp"
         />
-      </div>
+        <source
+          media="(max-width: 767px)"
+          type="image/png"
+          srcSet="/images/footer/niva-footer-mobile-v3.png"
+        />
 
-      {/* Desktop Mode (>= md) */}
-      <div className="absolute inset-0 z-0 pointer-events-none hidden md:block">
-        <Image
-          src="/images/footer/niva-footer-desktop-v2.webp"
-          alt="NIVA Architecture in Nature"
-          fill
-          sizes="100vw"
-          className="object-cover object-bottom"
-          quality={92}
+        {/* Desktop / Tablet (>= 768px): Wide panoramic composition */}
+        <source
+          media="(min-width: 768px)"
+          type="image/webp"
+          srcSet="/images/footer/niva-footer-desktop-v3.webp"
         />
-      </div>
+        <source
+          media="(min-width: 768px)"
+          type="image/png"
+          srcSet="/images/footer/niva-footer-desktop-v3.png"
+        />
+
+        {/* Fallback image */}
+        <img
+          src="/images/footer/niva-footer-desktop-v3.webp"
+          alt="NIVA Architecture in Nature"
+          className="w-full h-full object-cover object-bottom"
+          loading="eager"
+          decoding="async"
+        />
+      </picture>
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           BALANCED LIGHT CONTRAST OVERLAYS
