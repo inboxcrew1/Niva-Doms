@@ -44,11 +44,27 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="relative w-full text-ivory overflow-hidden bg-[#0D0D0F] pt-24 sm:pt-32 lg:pt-36 pb-12 sm:pb-16 min-h-[840px] flex flex-col justify-between">
-      {/* Panoramic Architectural Background (High-efficiency WebP) */}
+      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          PANORAMIC ARCHITECTURAL BACKGROUND
+          - Phone Mode (< md): Portrait format (459x1024)
+          - Desktop Mode (>= md): Landscape panoramic format (1024x442)
+      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      {/* Phone / Mobile Mode (< md) */}
       <div
-        className="absolute inset-0 z-0 bg-cover bg-no-repeat pointer-events-none"
+        className="absolute inset-0 z-0 bg-cover bg-no-repeat pointer-events-none md:hidden"
         style={{
-          backgroundImage: "url('/images/footer/niva-panoramic-footer.webp'), url('/images/footer/niva-panoramic-footer.png')",
+          backgroundImage: "url('/images/footer/niva-footer-mobile.webp'), url('/images/footer/niva-footer-mobile.png')",
+          backgroundPosition: 'center bottom',
+          backgroundSize: 'cover',
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Desktop Mode (>= md) */}
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-no-repeat pointer-events-none hidden md:block"
+        style={{
+          backgroundImage: "url('/images/footer/niva-footer-desktop.webp'), url('/images/footer/niva-footer-desktop.png')",
           backgroundPosition: 'center bottom',
           backgroundSize: 'cover',
         }}
